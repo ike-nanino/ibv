@@ -26,11 +26,11 @@ const AutoPlayVideo: React.FC = () => {
         
       </video>
 
-      <div data-aos="fade-up" className="absolute inset-x-0 bottom-28 lg:bottom-96 flex justify-center mb-3 lg:mb-10">
+      <div data-aos="fade-up" className="absolute inset-x-0 bottom-24 md:bottom-28 lg:bottom-96 flex justify-center mb-3 lg:mb-10">
         <h1 className='text-[#CCB37D]'>Unmatched Security, Global Trust</h1>
       </div>
 
-      <div data-aos="fade-up" className="absolute inset-x-0 bottom-16 lg:bottom-72 flex justify-center">
+      <div data-aos="fade-up" className="absolute inset-x-0 bottom-12 md:bottom-16 lg:bottom-72 flex justify-center">
       <p className='text-xl lg:text-6xl font-medium  lg:mt-10 text-white flex flex-col items-center font-secondary'>
         Your Peace of Mind Is Our
         <span className='font-secondary'>Priority</span>
