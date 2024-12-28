@@ -52,7 +52,7 @@ function MobileNav() {
         <SheetContent side='left' className='flex flex-col  border-none shadow-none w-screen h-screen'>
 
 
-            <SheetTitle className="mt-24 mb-28 text-center text-2xl text-black">
+            <SheetTitle className="mt-16 mb-16 text-center text-2xl text-black">
             IBV
           </SheetTitle>
 
