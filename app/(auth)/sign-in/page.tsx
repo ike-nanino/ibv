@@ -80,7 +80,7 @@ const SignIn = () => {
             />
           </div>
 
-          <Button type="submit" className="w-full bg-gold">
+          <Button type="submit" className="w-full bg-gold hover:bg-gold">
             Access Vault
           </Button>
         </form>
