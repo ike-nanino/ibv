@@ -21,7 +21,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "Welcome to IBV International Vault",
-  description: "Private safe deposit vaults offering you peace of mind and an invaluable service of world class safety, privacy and confidentiality. With branches in South Africa, London and Dubai.",
+  description: "Private safe deposit vaults offering you peace of mind and an invaluable service of world class safety, privacy and confidentiality. With branches in South Africa, London and Dubai",
 };
 
 export default function RootLayout({
