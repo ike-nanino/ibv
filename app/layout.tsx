@@ -1,7 +1,11 @@
+
+
+
 import type { Metadata } from "next";
 import { EB_Garamond, Poppins } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
+import SessionProviderWrapper from "@/components/SessionProviderWrapper";
 
 const eb = EB_Garamond({
   subsets: ["latin"],
@@ -31,7 +35,7 @@ export default function RootLayout({
         className={`${poppins.variable} ${eb.variable} antialiased`}
       >
         
-        {children}
+        <SessionProviderWrapper>{children}</SessionProviderWrapper>
 
         <Footer />
       </body>

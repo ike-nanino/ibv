@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { signOut, useSession } from "next-auth/react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -10,24 +9,15 @@ import VaultDetails from "@/components/profile/VaultDetails";
 import ActivityLogs from "@/components/profile/ActivityLogs";
 
 const Profile = () => {
-  const router = useRouter();
+  const { data: session, status } = useSession();
 
-  useEffect(() => {
-    // Check session validity
-    const session = JSON.parse(localStorage.getItem("session") || "{}");
+  if (status === "loading") {
+    return <p>Loading...</p>;
+  }
 
-    if (!session.loggedIn || Date.now() > session.expiry) {
-      alert("Your session has expired. Please log in again.");
-      localStorage.removeItem("session");
-      router.push("/"); // Redirect to homepage
-    }
-  }, [router]);
-
-  // Logout Functionality
-  const handleLogout = () => {
-    localStorage.removeItem("session");
-    router.push("/"); // Redirect to homepage
-  };
+  if (!session) {
+    return <p>Unauthorized access. Please sign in again.</p>;
+  }
 
   return (
     <div className="container mx-auto p-6">
@@ -36,14 +26,14 @@ const Profile = () => {
         <div className="flex items-center space-x-4">
           <Avatar>
             <AvatarImage src="/path-to-avatar.jpg" alt="User Avatar" />
-            <AvatarFallback>JD</AvatarFallback>
+            <AvatarFallback>{session.user.name?.[0] || "JB"}</AvatarFallback>
           </Avatar>
           <div>
-            <h1 className="text-xl font-semibold">Welcome, John Doe</h1>
+            <h1 className="text-xl font-semibold">Welcome, {session.user.name || "Vault User"}</h1>
             <p className="text-gray-500">Last login: Dec 26, 2024</p>
           </div>
         </div>
-        <Button variant="outline" onClick={handleLogout}>
+        <Button variant="outline" onClick={() => signOut({ callbackUrl: "/" })}>
           Logout
         </Button>
       </div>
