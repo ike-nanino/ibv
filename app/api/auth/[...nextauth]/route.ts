@@ -14,7 +14,7 @@ export const authOptions = {
 
         // Hardcoded credentials
         if (passkey === "Mypasskey" && pin === "1234") {
-          return { id: "1", name: "John Doe", email: "johndoe@example.com" };
+          return { id: "1", name: "John Doe", email: "johndoee@example.com" };
         }
 
         // Invalid credentials
